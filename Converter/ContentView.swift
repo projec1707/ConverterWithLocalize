@@ -33,6 +33,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
+            
             Form {
                 Section {
                     TextField("Amount", value: $input, format: .number)
@@ -92,6 +93,13 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .environment(\.locale,
+                              Locale.init(identifier: "ru"))
+            ContentView()
+                .environment(\.locale,
+                              Locale.init(identifier: "en"))
+        }
     }
 }
